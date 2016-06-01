@@ -1,0 +1,16 @@
+function indent() {
+  c='s/^/       /'
+  case $(uname) in
+    Darwin) sed -l "$c";;
+    *)      sed -u "$c";;
+  esac
+}
+
+BUILDPACK_DIR=`cd $(dirname $0); cd ..; pwd`
+BUILD_DIR=$1
+CACHE_DIR=$2
+
+echo "-----> Installing gnatsd from go command"
+go get -u github.com/nats-io/gnatsd
+echo "gnatsd installed" | indent
+
