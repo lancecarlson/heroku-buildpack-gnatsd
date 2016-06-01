@@ -2,3 +2,4 @@
 # bin/detect <build-dir>
 
 echo "gnatsd"
+exit 0
